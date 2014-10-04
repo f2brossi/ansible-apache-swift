@@ -1,4 +1,4 @@
-puppet-apache-swift
+ansible-apache-swift
 ===================
 
 Apache reverse proxy for Swift and Keystone
