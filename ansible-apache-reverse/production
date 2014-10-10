@@ -1,2 +1,2 @@
 [lbhp]
-test-apache2 ansible_ssh_host=x.x.x.x host=test-apache2 node=1 master=true
+test-apache2 ansible_ssh_host=x.x.x.x host=test-apache2 
