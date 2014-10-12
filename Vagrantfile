@@ -36,14 +36,14 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", path: "hosts.sh", privileged: "true"
 
   config.vm.provision :ansible do |ansible|
-      ansible.playbook = "ansible-apache-reverse/apache2reverse-install.yml"
+      ansible.playbook = "ansible-apacheproxy/apache2proxy-install.yml"
       ansible.verbose = "vv"
       ansible.limit = 'all'
       ansible.sudo = true 
   end
 
  config.vm.provision :ansible do |ansible|
-      ansible.playbook = "ansible-apache-reverse/apache2reverse-ideploy.yml"
+      ansible.playbook = "ansible-apacheproxy/apache2proxy-deploy.yml"
       ansible.verbose = "vv"
       ansible.limit = 'all'
       ansible.sudo = true
