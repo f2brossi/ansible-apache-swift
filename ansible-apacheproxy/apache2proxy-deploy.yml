@@ -9,10 +9,12 @@
   - name: copy-ssl-certs
     copy: src=files/{{ item.name }} dest={{ item.dest }} owner=root group=root mode=400
     with_items:
-     - { name: 'android.swift.crt', dest: '/etc/apache2/ssl/crt/android.swift.crt' }
+     - { name: 'ssl-cert-snakeoil.pem', dest: '/etc/ssl/certs/ssl-cert-snakeoil.pem' },
+     - { name: 'ssl-cert-snakeoil.key', dest: '/ets/ssl/private/ssl-cert-snakeoil.key'}	
+
 
   - name: deploy-conf
     template: src=templates/{{ item.tpl }} dest={{ item.file }} backup=yes
     with_items:
-     - { tpl: 'apache/site_pub.conf.j2', file: '/etc/apache2/sites-available/defautl-ssl' }
+     - { tpl: 'apache/site.conf.j2', file: '/etc/apache2/sites-available/default-ssl' }
  
