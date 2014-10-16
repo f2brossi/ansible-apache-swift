@@ -1,4 +1,4 @@
 ansible-apache-swift
 ===================
 
-Apache reverse proxy for Swift and Keystone
+Apache reverse proxy for Openstack components Swift and Keystone
