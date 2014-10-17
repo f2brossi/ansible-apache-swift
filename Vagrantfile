@@ -21,7 +21,7 @@ Vagrant.configure("2") do |config|
   config.vm.define 'test' do |test|
     test.vm.provider :openstack do |os|
       os.server_name = "test-apache2"
-      os.floating_ip = '185.39.216.52'
+      os.floating_ip = ENV['OS_FLOATING_IP']
       os.flavor = '4_vCPU_RAM_8G_HD_10G'
       os.image = 'ubuntu-12.04_x86-64_3.11-DEPRECATED'
       os.ssh_username = "stack"
@@ -36,19 +36,10 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", path: "hosts.sh", privileged: "true"
 
   config.vm.provision :ansible do |ansible|
-      ansible.playbook = "ansible-apacheproxy/apache2proxy-install.yml"
+      ansible.playbook = "ansible-apacheproxy/apache.yml"
       ansible.verbose = "vv"
       ansible.limit = 'all'
       ansible.sudo = true 
   end
-
- config.vm.provision :ansible do |ansible|
-      ansible.playbook = "ansible-apacheproxy/apache2proxy-deploy.yml"
-      ansible.verbose = "vv"
-      ansible.limit = 'all'
-      ansible.sudo = true
-  end
-
-
 
 end

@@ -1,6 +1,4 @@
-- hosts: apacheproxy
-
-  tasks:
+---
 
   - name: Add apt repository
     apt_repository: repo='{{ item }}'
