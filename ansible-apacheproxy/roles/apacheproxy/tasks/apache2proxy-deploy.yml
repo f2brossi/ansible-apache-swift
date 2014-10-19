@@ -15,4 +15,5 @@
     template: src={{ item.tpl }} dest={{ item.file }} backup=yes
     with_items:
      - { tpl: 'site.conf.j2', file: '/etc/apache2/sites-available/default-ssl' }
+     - { tpl: 'ports.conf.j2', file: '/etc/apache2/ports.conf' }
  
