@@ -1,13 +1,17 @@
 ansible-apache-swift
 ===================
 
-Apache reverse proxy for Openstack components Swift and Keystone
+Apache reverse proxy for Openstack components Swift and Keystone.
 
-Install Vagrant 1.4+
+## Prereqs
 
-Install Vagrant Plugin openstack
+Install the following applications on your local machine first:
 
-Install Ansible
+ * [Vagrant](http://vagrantup.com)
+ * [Vagrant openstack plugin] (https://github.com/ggiamarchi/vagrant-openstack-provider)
+ * [Ansible](http://ansibleworks.com)
+ 
+## Configuration
 
 Enter your credentials ENV[OS_XXX] in the Vagrantfile
 
