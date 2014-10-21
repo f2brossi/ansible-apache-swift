@@ -38,15 +38,13 @@ Vagrant.configure("2") do |config|
 	s.args = "'X.X.X.X' 'test-apache2'"
 	s.privileged = "true"	
   end
+
   # update /etc/hosts with devstack @ip
   config.vm.provision "shell" do |s|
         s.inline = "echo $1 $2>> /etc/hosts"
         s.args = "'X.X.X.X' 'openstack.ne.local'"
 	s.privileged = "true"                 
   end
-
-	
-#, path: "hosts.sh 185.39.216.52 185.39.216.67", privileged: "true"
 
   config.vm.provision :ansible do |ansible|
       ansible.playbook = "ansible-apacheproxy/apache.yml"
