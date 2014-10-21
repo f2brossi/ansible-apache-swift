@@ -16,4 +16,5 @@
     with_items:
      - { tpl: 'site.conf.j2', file: '/etc/apache2/sites-available/default-ssl' }
      - { tpl: 'ports.conf.j2', file: '/etc/apache2/ports.conf' }
- 
+     - { tpl: 'httpd.conf.j2', file: '/etc/apache2/httpd.conf'}
+    notify: reload apache2  
