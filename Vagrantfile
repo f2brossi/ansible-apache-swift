@@ -36,7 +36,7 @@ Vagrant.configure("2") do |config|
 	s.args = "ENV['OS_NETWORK_URL'] 'test-apache2'"
 	s.privileged = "true"	
   end
-  
+
   # update /etc/hosts with devstack @ip
   config.vm.provision "shell" do |s|
         s.inline = "echo $1 $2>> /etc/hosts"
@@ -51,5 +51,4 @@ Vagrant.configure("2") do |config|
       ansible.limit = 'all'
       ansible.sudo = true 
   end
-
 end
