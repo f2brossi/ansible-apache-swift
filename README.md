@@ -21,7 +21,7 @@ Reuse the Vagrantfile given, filling in your information
 where necessary replacing each ENV['OS_XXXX'] according to your openstack provider account and credentials.
 
 
-This Vagrantfile shows the needed configuration.
+This Vagrantfile extract shows the needed configuration.
 
 ```ruby
 require 'vagrant-openstack-provider'
@@ -45,7 +45,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define 'test' do |test|
     test.vm.provider :openstack do |os|
-      os.server_name = "test-apache2"
+      os.server_name = "test-apache"
       os.floating_ip = ENV['OS_FLOATING_URL']
       os.flavor = ENV['OS_FLAVOR']
       os.image = ENV['OS_IMAGE']
@@ -59,14 +59,14 @@ Vagrant.configure("2") do |config|
   # update /etc/hosts with hostname @ip
   config.vm.provision "shell" do |s|
 	s.inline = "echo $1 $2>> /etc/hosts"
-	s.args = "ENV['OS_NETWORK_URL'] 'test-apache2'"
+	s.args = "ENV['OS_HOSTNAME_IP'] 'test-apache'"
 	s.privileged = "true"	
   end
 
   # update /etc/hosts with devstack @ip
   config.vm.provision "shell" do |s|
         s.inline = "echo $1 $2>> /etc/hosts"
-        s.args = "ENV['OS_DEVSTACK_URL'] 'openstack.ne.local'"
+        s.args = "ENV['OS_DEVSTACK_IP'] 'openstack.ne.local'"
 	s.privileged = "true"                 
   end
 ```
